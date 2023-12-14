@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>烁古震今</title>
+</head>
+
+<body background="image/背景1.png">
+<p><img src="image/image (5).png" alt="" width="193" height="52" usemap="#Map"/></p>
+<p><img src="image/7698dc19df8cd42472a0e99424842ea81adf9e24_size618_w1655_h2237.jpg" width="280" height="324" alt=""/>
+  <map name="Map">
+    <area shape="rect" coords="1,4,191,48" href="index.html" target="_self">
+    
+  </map>
+<img src="image/R-C (3).png" width="490" height="300" alt=""/><img src="image/R-C (5).png" width="503" height="301" alt=""/></p>
+<table width="901" height="484" border="0">
+  <tbody>
+    <tr>
+      <td width="447"><img src="image/980.png" width="447" height="235" alt=""/></td>
+      <td width="444"><img src="image/5c8176a470614acab82ddf8abd0c3d6f-00005.jpg" width="447" height="235" alt=""/></td>
+    </tr>
+    <tr>
+      <td height="237"><img src="image/1111.png" width="447" height="235"  alt=""/></td>
+      <td><img src="image/R-C (4).jpg"width="447" height="235" alt=""/></td>
+    </tr>
+	  
+  </tbody>
+	
+</table>
+
+<embed src="image/186888658-1-16.mp3" width="0" height="0"></embed>
+<p>&nbsp;</p>
+</body>
+</html>
+</head>
+ 
+<body>
+    <span class="js-cursor-container"></span>
+    <script>
+        (function fairyDustCursor() {
+ 
+            var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var cursor = { x: width / 2, y: width / 2 };
+            var particles = [];
+ 
+            function init() {
+                bindEvents();
+                loop();
+            }
+ 
+            // Bind events that are needed
+            function bindEvents() {
+                document.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('resize', onWindowResize);
+            }
+ 
+            function onWindowResize(e) {
+                width = window.innerWidth;
+                height = window.innerHeight;
+            }
+ 
+            function onMouseMove(e) {
+                cursor.x = e.clientX;
+                cursor.y = e.clientY;
+ 
+                addParticle(cursor.x, cursor.y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
+            }
+ 
+            function addParticle(x, y, color) {
+                var particle = new Particle();
+                particle.init(x, y, color);
+                particles.push(particle);
+            }
+ 
+            function updateParticles() {
+ 
+                // Updated
+                for (var i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                }
+ 
+                // Remove dead particles
+                for (var i = particles.length - 1; i >= 0; i--) {
+                    if (particles[i].lifeSpan < 0) {
+                        particles[i].die();
+                        particles.splice(i, 1);
+                    }
+                }
+ 
+            }
+ 
+            function loop() {
+                requestAnimationFrame(loop);
+                updateParticles();
+            }
+ 
+            /**
+             * Particles
+             */
+ 
+            function Particle() {
+ 
+                this.character = "*";
+                this.lifeSpan = 120; //ms
+                this.initialStyles = {
+                    "position": "fixed",
+                    "display": "inline-block",
+                    "top": "0px",
+                    "left": "0px",
+                    "pointerEvents": "none",
+                    "touch-action": "none",
+                    "z-index": "10000000",
+                    "fontSize": "25px",
+                    "will-change": "transform"
+                };
+ 
+                // Init, and set properties
+                this.init = function (x, y, color) {
+ 
+                    this.velocity = {
+                        x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
+                        y: 1
+                    };
+ 
+                    this.position = { x: x + 10, y: y + 10 };
+                    this.initialStyles.color = color;
+ 
+                    this.element = document.createElement('span');
+                    this.element.innerHTML = this.character;
+                    applyProperties(this.element, this.initialStyles);
+                    this.update();
+ 
+                    document.querySelector('.js-cursor-container').appendChild(this.element);
+                };
+ 
+                this.update = function () {
+                    this.position.x += this.velocity.x;
+                    this.position.y += this.velocity.y;
+                    this.lifeSpan--;
+ 
+                    this.element.style.transform = "translate3d(" + this.position.x + "px," + this.position.y + "px, 0) scale(" + (this.lifeSpan / 120) + ")";
+                }
+ 
+                this.die = function () {
+                    this.element.parentNode.removeChild(this.element);
+                }
+ 
+            }
+ 
+            /**
+             * Utils
+             */
+ 
+            // Applies css `properties` to an element.
+            function applyProperties(target, properties) {
+                for (var key in properties) {
+                    target.style[key] = properties[key];
+                }
+            }
+ 
+            if (!('ontouchstart' in window || navigator.msMaxTouchPoints)) init();
+        })();    
+    </script>
+</body>

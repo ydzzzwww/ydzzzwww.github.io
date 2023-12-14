@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body background="image/背景1.png" text="#020303">
+	
+<p><img src="image/image (5).png" alt="" width="194" height="47" usemap="#Map2"/>
+  <map name="Map2">
+    <area shape="rect" coords="8,4,182,43" href="index.html" target="_self">
+  </map>
+  <map name="Map">
+    <area shape="rect" coords="5,4,183,36" href="#">
+  </map>
+</p>
+<p>&nbsp;</p>
+<table width="1042" border="1">
+  <tbody>
+    <tr>
+      <td width="292"><img src="image/OIP-C (2).jpg"  width="292" height="369" alt=""/></td>
+      <td width="366"><img src="image/20180124142657_LVyJf.jpeg"  width="366" height="335" alt=""/></td>
+      <td width="362"><img src="image/OIP-C (1).jpg" width="366" height="333" alt=""/></td>
+    </tr>
+    <tr>
+      <td height="131">陶喆（David&nbsp;Zee&nbsp;Tao），1969年7月11日出生于中国香港，祖籍上海&nbsp;，华语流行乐男歌手、音乐人，毕业于加利福尼亚大学洛杉矶分校。&nbsp;1993年以音乐制作人身份进入音乐圈，之后为张信哲、陈淑桦、郑中基等歌手制作专辑、创作歌曲&nbsp;。1997年转型成为歌手，发行首张专辑《David&nbsp;Tao》，将R&amp;B曲风的音乐引入中国台湾流行乐坛。1998年获得第9届台湾金曲奖最佳新人奖、最佳唱片制作人奖&nbsp;。1999年凭借专辑《I&apos;m&nbsp;OK》获得第11届台湾金曲奖最佳专辑制作人奖&nbsp;。2002年发行融合多种音乐风格的专辑《黑色柳丁》&nbsp;。2003年获得第25届十大中文金曲全国最受欢迎男歌手银奖&nbsp;；同年举行&ldquo;Soul&nbsp;Power&rdquo;演唱会&nbsp;。2005年获得第5届全球华语歌曲排行榜最佳制作人奖&nbsp;。<br></td>
+      <td>《太平盛世》是陶喆在2005年1月21日发行的国语专辑，共收录了13首歌曲。&nbsp;该专辑获得华语音乐传媒大赛中获最佳录音奖、第17届台湾金曲奖最佳国语流行音乐演唱专辑奖、港台地区最佳专辑奖<br></td>
+      <td>《太美丽》是陶喆2006年发行的音乐专辑&nbsp;[1]。作词人包括娃娃、葛大为等人，作曲人包括陶喆等人。&nbsp;[10]&nbsp;2007年，陶喆凭借该专辑在第七届全球华语歌曲排行榜颁奖典礼上获得最佳男歌手、年度最受欢迎金曲、最受欢迎男歌手前五强、最佳专辑、最受欢迎对唱歌曲、最佳制作人六个奖项，并且在Hito流行音乐奖上获得Hito制作人、Hito作曲人、听众最爱歌曲、年度10大金曲四个奖项&nbsp;[2]。、<br></td>
+    </tr>
+	  
+</tbody>
+</table>
+&nbsp;&nbsp;。<img src="image/wwwwww.png" width="506" height="261" alt=""/>
+<div>
+  <embed src="web/M500000ZsfxD0ZTeV6.mp3" width="0" height="0"></embed>
+</div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    
+</head>
+ 
+<body>
+    <span class="js-cursor-container"></span>
+    <script>
+        (function fairyDustCursor() {
+ 
+            var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var cursor = { x: width / 2, y: width / 2 };
+            var particles = [];
+ 
+            function init() {
+                bindEvents();
+                loop();
+            }
+ 
+            // Bind events that are needed
+            function bindEvents() {
+                document.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('resize', onWindowResize);
+            }
+ 
+            function onWindowResize(e) {
+                width = window.innerWidth;
+                height = window.innerHeight;
+            }
+ 
+            function onMouseMove(e) {
+                cursor.x = e.clientX;
+                cursor.y = e.clientY;
+ 
+                addParticle(cursor.x, cursor.y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
+            }
+ 
+            function addParticle(x, y, color) {
+                var particle = new Particle();
+                particle.init(x, y, color);
+                particles.push(particle);
+            }
+ 
+            function updateParticles() {
+ 
+                // Updated
+                for (var i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                }
+ 
+                // Remove dead particles
+                for (var i = particles.length - 1; i >= 0; i--) {
+                    if (particles[i].lifeSpan < 0) {
+                        particles[i].die();
+                        particles.splice(i, 1);
+                    }
+                }
+ 
+            }
+ 
+            function loop() {
+                requestAnimationFrame(loop);
+                updateParticles();
+            }
+ 
+            /**
+             * Particles
+             */
+ 
+            function Particle() {
+ 
+                this.character = "*";
+                this.lifeSpan = 120; //ms
+                this.initialStyles = {
+                    "position": "fixed",
+                    "display": "inline-block",
+                    "top": "0px",
+                    "left": "0px",
+                    "pointerEvents": "none",
+                    "touch-action": "none",
+                    "z-index": "10000000",
+                    "fontSize": "25px",
+                    "will-change": "transform"
+                };
+ 
+                // Init, and set properties
+                this.init = function (x, y, color) {
+ 
+                    this.velocity = {
+                        x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
+                        y: 1
+                    };
+ 
+                    this.position = { x: x + 10, y: y + 10 };
+                    this.initialStyles.color = color;
+ 
+                    this.element = document.createElement('span');
+                    this.element.innerHTML = this.character;
+                    applyProperties(this.element, this.initialStyles);
+                    this.update();
+ 
+                    document.querySelector('.js-cursor-container').appendChild(this.element);
+                };
+ 
+                this.update = function () {
+                    this.position.x += this.velocity.x;
+                    this.position.y += this.velocity.y;
+                    this.lifeSpan--;
+ 
+                    this.element.style.transform = "translate3d(" + this.position.x + "px," + this.position.y + "px, 0) scale(" + (this.lifeSpan / 120) + ")";
+                }
+ 
+                this.die = function () {
+                    this.element.parentNode.removeChild(this.element);
+                }
+ 
+            }
+ 
+            /**
+             * Utils
+             */
+ 
+            // Applies css `properties` to an element.
+            function applyProperties(target, properties) {
+                for (var key in properties) {
+                    target.style[key] = properties[key];
+                }
+            }
+ 
+            if (!('ontouchstart' in window || navigator.msMaxTouchPoints)) init();
+        })();    
+    </script>
+</body>
+ 
+</html>
